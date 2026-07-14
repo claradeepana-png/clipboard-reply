@@ -1,0 +1,60 @@
+{
+  "prompts": [
+    {
+      "id": 1,
+      "name": "Summarize",
+      "description": "Create a concise summary",
+      "prompt": "Please summarize the following text in 2-3 sentences:",
+      "icon": "📝"
+    },
+    {
+      "id": 2,
+      "name": "Explain",
+      "description": "Explain in simple terms",
+      "prompt": "Explain the following in simple, easy-to-understand terms:",
+      "icon": "💡"
+    },
+    {
+      "id": 3,
+      "name": "Professional Email",
+      "description": "Convert to professional email",
+      "prompt": "Convert the following into a professional and polite email:",
+      "icon": "📧"
+    },
+    {
+      "id": 4,
+      "name": "Grammar Fix",
+      "description": "Fix grammar and spelling",
+      "prompt": "Fix all grammar, spelling, and punctuation errors in the following text. Return only the corrected text:",
+      "icon": "✏️"
+    },
+    {
+      "id": 5,
+      "name": "Make it Shorter",
+      "description": "Make it concise",
+      "prompt": "Rewrite the following to be as concise as possible without losing important information:",
+      "icon": "⚡"
+    },
+    {
+      "id": 6,
+      "name": "Make it Longer",
+      "description": "Expand with details",
+      "prompt": "Expand the following text with more details, examples, and explanations:",
+      "icon": "📚"
+    },
+    {
+      "id": 7,
+      "name": "Creative Ideas",
+      "description": "Generate creative ideas",
+      "prompt": "Generate 5 creative ideas or suggestions based on:",
+      "icon": "🎨"
+    },
+    {
+      "id": 8,
+      "name": "Ask Questions",
+      "description": "Generate insightful questions",
+      "prompt": "Generate 5 thoughtful questions about the following:",
+      "icon": "❓"
+    }
+  ]
+}
