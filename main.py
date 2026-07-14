@@ -20,8 +20,12 @@ DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-3.5-turbo")
 HOTKEY = os.getenv("HOTKEY", "ctrl+shift+r")
 
 # Load prompts
-with open('prompts.json', 'r') as f:
-    PROMPTS_DATA = json.load(f)
+try:
+    with open('prompts.json', 'r') as f:
+        PROMPTS_DATA = json.load(f)
+except FileNotFoundError:
+    print("ERROR: prompts.json not found!")
+    sys.exit(1)
 
 class ClipboardReplyApp:
     def __init__(self, root):
@@ -238,7 +242,7 @@ def main():
     if not OPENROUTER_API_KEY:
         root = tk.Tk()
         root.withdraw()
-        messagebox.showerror("Error", "OPENROUTER_API_KEY not found in .env file!\n\nPlease add your API key to the .env file.")
+        messagebox.showerror("Error", "OPENROUTER_API_KEY not found in .env file!\n\nPlease:\n1. Go to https://openrouter.ai\n2. Sign up and get your API key\n3. Create a .env file with your key\n4. Restart the app")
         sys.exit(1)
     
     root = tk.Tk()
