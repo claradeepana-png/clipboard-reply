@@ -19,11 +19,14 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "openai/gpt-3.5-turbo")
 HOTKEY = os.getenv("HOTKEY", "ctrl+shift+r")
 
-# Load prompts
+# Load prompts with proper encoding
 try:
-    with open('prompts.json', 'r') as f:
+    with open('prompts.json', 'r', encoding='utf-8') as f:
         PROMPTS_DATA = json.load(f)
 except FileNotFoundError:
+    PROMPTS_DATA = {'prompts': []}
+except Exception as e:
+    print(f"Error loading prompts: {e}")
     PROMPTS_DATA = {'prompts': []}
 
 class MainApp:
@@ -61,7 +64,7 @@ class MainApp:
     def load_config(self):
         if os.path.exists(self.config_file):
             try:
-                with open(self.config_file, 'r') as f:
+                with open(self.config_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
             except:
                 pass
@@ -73,20 +76,20 @@ class MainApp:
         }
     
     def save_config(self):
-        with open(self.config_file, 'w') as f:
+        with open(self.config_file, 'w', encoding='utf-8') as f:
             json.dump(self.config, f, indent=2)
     
     def load_history(self):
         if os.path.exists(self.history_file):
             try:
-                with open(self.history_file, 'r') as f:
+                with open(self.history_file, 'r', encoding='utf-8') as f:
                     return json.load(f)
             except:
                 pass
         return []
     
     def save_history(self):
-        with open(self.history_file, 'w') as f:
+        with open(self.history_file, 'w', encoding='utf-8') as f:
             json.dump(self.history[-50:], f, indent=2)  # Keep last 50
     
     def setup_ui(self):
